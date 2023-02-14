@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\CortoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', IndexController::class)->name('index');
+
+
+
+Route::view('saludo/{nombre}/{codigo}', 'saludo', ['nombre' => '$nombre', 'codigo' => '$codigo'])
+    ->where('nombre', '[A-Za-z]+')
+    ->where('codigo', '[0-9]+');
+
+
+Route::resource('corto', CortoController::class)->only(['index']);

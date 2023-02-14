@@ -1,0 +1,1 @@
+Hola {{$nombre}} tu código es {{$codigo}}
