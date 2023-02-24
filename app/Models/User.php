@@ -11,6 +11,11 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    
+    public function cortos()
+    {
+        return $this->hasMany(Corto::class);
+    }
 
     /**
      * The attributes that are mass assignable.
