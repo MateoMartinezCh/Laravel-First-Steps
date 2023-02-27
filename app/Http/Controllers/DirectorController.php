@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DirectorRequest;
 use App\Models\Director;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class DirectorController extends Controller
      */
     public function index()
     {
-        //
+        $directores = Director::with('cortos')->orderBy('created_at', 'desc')->get();
+        return view('directores.index', compact('directores'));
     }
 
     /**
@@ -33,9 +35,13 @@ class DirectorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DirectorRequest $request)
     {
-        //
+        $director = new Director();
+        $director->nombre = $request->get("nombre");
+        $director->apellidos = $request->get("apellidos");
+        $director->save();
+        return redirect()->route('directores.index');
     }
 
     /**

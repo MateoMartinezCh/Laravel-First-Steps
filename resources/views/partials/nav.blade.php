@@ -13,7 +13,10 @@
                     <a class="nav-link {{ setActive('cortos.*') }}" href="{{route('cortos.index')}}">Listado de cortos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ setActive('directores.*') }}" href="{{route('directores.create')}}">Crear Director</a>
+                    <a class="nav-link {{ setActive('directores.index') }}" href="{{route('directores.index')}}">Directores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ setActive('directores.create') }}" href="{{route('directores.create')}}">Crear Director</a>
                 </li>
             </ul>
         </div>

@@ -10,8 +10,11 @@
         <div class="card-body">
             <h1 class="card-title">{{$director->nombre}}</h1>
             <h5 class="card-title">{{$director->apellidos}}</h5>
-            <!--             <a href="{{route('directores.show',$director->id)}}" class="btn btn-primary">Detalles</a>
- -->
+            @forelse($director->cortos as $corto )
+            <h5 class="card-title">{{$corto->titulo}}</h5>
+            @empty
+            <div class="alert alert-danger">No hay ningún corto</div>
+            @endforelse
         </div>
     </div>
     @empty

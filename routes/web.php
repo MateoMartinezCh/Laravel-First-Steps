@@ -20,4 +20,4 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::resource('cortos', CortoController::class)->only(['index', 'show']);
-Route::resource('directores', DirectorController::class)->only(['create', 'store']);
+Route::resource('directores', DirectorController::class)->only(['index', 'create', 'store']);
