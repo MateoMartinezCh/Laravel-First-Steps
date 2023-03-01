@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CortoRequest;
 use App\Models\Corto;
+use App\Models\Director;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CortoController extends Controller
@@ -25,7 +28,8 @@ class CortoController extends Controller
      */
     public function create()
     {
-        //
+        $directores = Director::orderBy('created_at', 'desc')->get();
+        return view('cortos.create', compact('directores'));
     }
 
     /**
@@ -34,9 +38,15 @@ class CortoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CortoRequest $request)
     {
-        //
+        $corto = new Corto();
+        $corto->titulo = $request->get("titulo");
+        $corto->sinopsis = $request->get("sinopsis");
+        $corto->director_id = $request->get("director_id");
+        $corto->user_id = 1;
+        $corto->save();
+        return redirect()->route('cortos.index');
     }
 
     /**

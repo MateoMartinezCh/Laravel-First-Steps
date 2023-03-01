@@ -13,6 +13,9 @@
                     <a class="nav-link {{ setActive('cortos.*') }}" href="{{route('cortos.index')}}">Listado de cortos</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {{ setActive('cortos.create') }}" href="{{route('cortos.create')}}">Crear Corto</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {{ setActive('directores.index') }}" href="{{route('directores.index')}}">Directores</a>
                 </li>
                 <li class="nav-item">

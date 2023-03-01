@@ -19,5 +19,5 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::resource('cortos', CortoController::class)->only(['index', 'show']);
+Route::resource('cortos', CortoController::class)->only(['index', 'show', 'create', 'store']);
 Route::resource('directores', DirectorController::class)->only(['index', 'create', 'store']);
